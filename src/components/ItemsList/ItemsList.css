@@ -1,0 +1,14 @@
+.item {
+  display: flex;
+  width: 70%;
+  height: 45px;
+  margin: 10px auto 10px auto;
+  background-color: gold;
+  align-items: center;
+  border-radius: 4px;
+}
+
+.item p {
+  text-align: center;
+  width: 100%;
+}

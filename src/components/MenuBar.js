@@ -27,6 +27,15 @@ const MenuBar = () => (
         <NavLink
           className="nav-list-item-link"
           activeClassName="nav-list-item-link-active"
+          to="/todos"
+        >
+          Todo list
+        </NavLink>
+      </li>
+      <li className="nav-list-item">
+        <NavLink
+          className="nav-list-item-link"
+          activeClassName="nav-list-item-link-active"
           to="/about"
         >
           About

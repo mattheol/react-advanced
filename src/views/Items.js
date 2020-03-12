@@ -3,6 +3,7 @@ import GridItem from "../components/GridItem/GridItem";
 import "./Items.css";
 import Collapse from "../providers/Collapse";
 import Button from "../components/Button/Button";
+import Auth from "../providers/Auth";
 class Items extends React.Component {
   state = {
     itemsList: [
@@ -53,26 +54,38 @@ class Items extends React.Component {
 
   render() {
     return (
-      <Collapse
-        render={({ isCollapsed, toggle }) => {
-          const displayType = isCollapsed ? "none" : "grid";
-          return (
-            <>
-              <Button color="#c3a5d8" onClick={toggle}>
-                Click me
-              </Button>
-              <div className="grid-wrapper" style={{ display: displayType }}>
-                {this.state.itemsList.map(item => (
-                  <GridItem
-                    heading={item.heading}
-                    content={item.content}
-                    key={item.id}
-                  />
-                ))}
-              </div>
-            </>
-          );
-        }}
+      <Auth
+        render={({ isAuthorized, toggleAuth }) => (
+          <Collapse
+            render={({ isCollapsed, toggle }) => {
+              const displayType = isCollapsed ? "none" : "grid";
+              return (
+                <>
+                  <Button color="#c3a5d8" onClick={toggle}>
+                    Click me
+                  </Button>
+                  <Button color="#c3a5d8" onClick={toggleAuth}>
+                    {isAuthorized ? "Logout" : "Log in"}
+                  </Button>
+                  {isAuthorized && (
+                    <div
+                      className="grid-wrapper"
+                      style={{ display: displayType }}
+                    >
+                      {this.state.itemsList.map(item => (
+                        <GridItem
+                          heading={item.heading}
+                          content={item.content}
+                          key={item.id}
+                        />
+                      ))}
+                    </div>
+                  )}
+                </>
+              );
+            }}
+          />
+        )}
       />
     );
   }

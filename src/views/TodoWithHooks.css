@@ -23,3 +23,30 @@
 p {
   text-align: center;
 }
+
+.layoutButton {
+  position: fixed;
+  top: 100px;
+  right: 50px;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: moccasin;
+}
+
+.container1 {
+  width: 100%;
+  position: fixed;
+  margin: 0;
+  padding: 100px 0 0 100px;
+  height: 100%;
+  transition: background-color 1s ease;
+}
+
+.title {
+  margin: 0;
+  transition: color 1s ease;
+}

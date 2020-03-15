@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import closeIcon from "../assets/close.svg";
 import "./TodoWithHooks.css";
 import axios from "axios";
@@ -8,6 +8,18 @@ const TodoWithHooks = () => {
     { id: 1, task: "Zjesć śniadanie" }
   ]);
   const [tasksMock, setTaskMock] = useState([]);
+  const titleRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const handleLayoutBtnClick = () => {
+    if (containerRef.current.style.backgroundColor === "black") {
+      containerRef.current.style.backgroundColor = "white";
+      titleRef.current.style.color = "black";
+    } else {
+      containerRef.current.style.backgroundColor = "black";
+      titleRef.current.style.color = "white";
+    }
+  };
 
   useEffect(() => {
     const retrieveData = async () => {
@@ -28,8 +40,13 @@ const TodoWithHooks = () => {
   };
 
   return (
-    <div>
-      <h1>Todo list</h1>
+    <div ref={containerRef} className="container1">
+      <button className="layoutButton" onClick={handleLayoutBtnClick}>
+        Click me
+      </button>
+      <h1 className="title" ref={titleRef}>
+        Todo list
+      </h1>
       <input
         value={inputContent}
         placeholder="Write your task"

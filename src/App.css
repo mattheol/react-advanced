@@ -2,6 +2,8 @@
   box-sizing: border-box;
 }
 
+html,
 body {
-  padding-top: 50px;
+  padding-top: 0px;
+  height: 100%;
 }

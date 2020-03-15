@@ -2,7 +2,7 @@ import { Component } from "react";
 
 class Collapse extends Component {
   state = {
-    isCollapsed: false
+    isCollapsed: true
   };
 
   toggle = () => {
